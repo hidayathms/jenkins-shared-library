@@ -6,7 +6,7 @@ def lintchecks('component') {
     sh "echo **** Starting Style checks *******"
 }
 
-def call() {
+def call('component') {
 pipeline { 
     agent any
     stages {
