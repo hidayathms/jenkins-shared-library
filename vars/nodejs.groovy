@@ -13,7 +13,7 @@ pipeline {
         stage('Lint Checks') {
             steps {
                 script {
-                    nodejs.lintchecks()
+                    lintchecks()
                 }
             }
         }
