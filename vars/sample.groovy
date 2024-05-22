@@ -4,4 +4,3 @@ def info() {
     echo "INFO : demo on shared libarary"
 }
 
-info()
