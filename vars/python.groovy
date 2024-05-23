@@ -1,6 +1,6 @@
 def lintchecks(component) {
     sh "echo ***** Starting Style checks for  ${component} *******"
-    sh "pip3 install pylint"
+    sh "pip3 install pylint |sudo bash"
     sh "pylint *.py || true"
     sh "echo **** Style checks are completed for ${component} *******"
 }
