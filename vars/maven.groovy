@@ -20,6 +20,13 @@ pipeline {
                 }
             }
         }
+        stage('Compiling Java code') {
+            steps {
+                script {
+                    sonarChecks(component)
+                }
+            }
+        }
         stage('Static Code Analysis') {
             steps {
                 script {
