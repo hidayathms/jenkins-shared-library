@@ -1,18 +1,18 @@
-def lintchecks(component) {
-    sh "echo ***** Starting Style checks for  ${component} *******"
+def lintchecks() {
+    sh "echo ***** Starting Style checks for  ${COMPONENT} *******"
     sh "pip3 install pylint || true"
     sh "pylint *.py || true"
-    sh "echo **** Style checks are completed for ${component} *******"
+    sh "echo **** Style checks are completed for ${COMPONENT} *******"
 }
 
-def call(component) {
+def call() {
 pipeline { 
     agent any
     stages {
         stage('Lint Checks') {
             steps {
                 script {
-                    lintchecks(component)
+                    lintchecks()
                 }
             }
         }
