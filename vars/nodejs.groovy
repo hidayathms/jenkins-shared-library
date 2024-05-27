@@ -28,6 +28,12 @@ def call(component) {
                 }
             }
         }
+        stage('Get the results') {
+            steps {
+                echo "aafasd"
+                }
+            }
+        }
         stage('Unit Testing') {
             steps {
                 echo "Testing in Progress"
