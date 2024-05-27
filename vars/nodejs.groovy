@@ -11,8 +11,7 @@ def sonarChecks(component) {
     }
 
 def call(component) {
-
-pipeline { 
+  pipeline { 
     agent any
     stages {
         stage('Lint Checks') {
@@ -37,6 +36,6 @@ pipeline {
         }
         
     }
-}
+  }
 
 }
