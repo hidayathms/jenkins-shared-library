@@ -30,8 +30,8 @@ def call(component) {
         }
         stage('Static Code Analysis') {
             steps {
-                echo "Testing in Progress"
-                echo "Testing in Completed"
+                // echo "Testing in Progress"
+                // echo "Testing in Completed"
             }
         }
         
