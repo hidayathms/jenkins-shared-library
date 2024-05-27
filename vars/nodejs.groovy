@@ -34,7 +34,6 @@ def call(component) {
                 sh "./gates.sh admin pass 172.31.41.5 ${component}"
                 }
             }
-        }
         stage('Unit Testing') {
             steps {
                 echo "Testing in Progress"
