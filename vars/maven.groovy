@@ -23,6 +23,7 @@ pipeline {
         stage('Compiling Java code') {
             steps {
                 sh "mvn clean compile"
+                sh "ls -ltr target/"
                 }
             }
         }
