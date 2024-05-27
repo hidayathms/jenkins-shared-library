@@ -28,6 +28,7 @@ pipeline {
         stage('Static Code Analysis') {
             steps {
                 script {
+                    env.ARGS="-Dsonar.sources=."
                     common.sonarChecks()
                 }
             }

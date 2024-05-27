@@ -23,7 +23,8 @@ pipeline {
         stage('Static Code Analysis') {
             steps {
                 script {
-                    sonarChecks()
+                    env.ARGS="-Dsonar.java.binaries=./target"
+                    common.sonarChecks()
                 }
             }
         }
