@@ -6,7 +6,7 @@ def lintchecks(component) {
 }
 
 def sonarChecks(component) {
-    sh "sonar-scanner -Dsonar.host.url=http://54.224.63.79:9000 -Dsonar.sources=. -Dsonar.projectKey=${component} -Dsonar.login=admin -Dsonar.password=pass"
+    sh "sonar-scanner -Dsonar.host.url=http://54.224.63.79:9000 -Dsonar.java.binaries=./target -Dsonar.projectKey=${component} -Dsonar.login=admin -Dsonar.password=pass"
     }
 
 def call(component) {
