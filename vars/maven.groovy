@@ -8,6 +8,9 @@ def lintchecks() {
 def call() {
 pipeline { 
     agent any
+    environment {
+       SONAR_CRED=credentials('SONAR_CRED')
+    }
     tools {
         maven 'maven-396' 
     }
