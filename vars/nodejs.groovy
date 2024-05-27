@@ -30,7 +30,7 @@ def call(component) {
         }
         stage('Get the sonar results') {
             steps {
-                sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh |sudo bash |echo "DevOps321"
+                sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh |sudo bash |echo "DevOps321""
                 sh "./gates.sh admin pass 172.31.41.5 ${component}"
                 }
             }
