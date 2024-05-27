@@ -5,6 +5,10 @@ def lintchecks() {
     sh "echo **** Style checks are completed for ${COMPONENT} *******"
 }
 
+def sonarChecks() {
+    sh "sonar-scanner -Dsonar.host.url=http://54.224.63.79:9000 -Dsonar.java.binaries=./target -Dsonar.projectKey=${component} -Dsonar.login=admin -Dsonar.password=pass"
+}
+
 def call() {
 pipeline { 
     agent any
@@ -18,10 +22,24 @@ pipeline {
         }
         stage('Static Code Analysis') {
             steps {
-                sh "echo Starting Static code analysis"
+                script {
+                    sonarChecks()
+                }
             }
         }
+        stage('Get the sonar results') {
+            steps {
+                sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh"
+                sh "bash gates.sh admin pass 172.31.41.5 ${COMPONENT}"
+                }
+            }
+        stage('Unit Testing') {
+            steps {
+                echo "Testing in Progress"
+                echo "Testing in Completed"
+            }
+        }
+        }
     }
-}
 
 }
