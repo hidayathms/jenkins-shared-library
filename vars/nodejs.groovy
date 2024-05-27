@@ -28,6 +28,13 @@ pipeline {
                 }
             }
         }
+        stage('Static Code Analysis') {
+            steps {
+                echo "Testing in Progress"
+                echo "Testing in Completed"
+                }
+            }
+        }
     }
 }
 
