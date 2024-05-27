@@ -28,12 +28,12 @@ def call(component) {
                 }
             }
         }
-        // stage('Static Code Analysis') {
-        //     steps {
-        //         // echo "Testing in Progress"
-        //         // echo "Testing in Completed"
-        //     }
-        // }
+        stage('Unit Testing') {
+            steps {
+                echo "Testing in Progress"
+                echo "Testing in Completed"
+            }
+        }
         
     }
   }
