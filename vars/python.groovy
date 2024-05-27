@@ -19,7 +19,7 @@ pipeline {
         stage('Static Code Analysis') {
             steps {
                 script {
-                    env.ARGS="-Dsonar.java.binaries=./target"
+                    env.ARGS="-Dsonar.sources=."
                     common.sonarChecks()
                 }
             }
