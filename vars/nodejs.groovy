@@ -11,6 +11,7 @@ def sonarChecks(component) {
     }
 
 def call(component) {
+
 pipeline { 
     agent any
     stages {
