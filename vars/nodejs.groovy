@@ -6,6 +6,11 @@ def lintchecks(component) {
     sh "echo **** Style checks are completed for ${component} *******"
 }
 
+def sonarChecks(){
+    sh ...
+    sonar-scanner -Dsonar.host.url=http://172.31.41.5:9000 -Dsonar.soruces=. -Dsonar.projectKey=${COMPONENT} -Dsonar.login=admin -Dsonar.password=pass
+    ...
+}
 def call(component) {
 pipeline { 
     agent any
