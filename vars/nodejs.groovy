@@ -28,9 +28,10 @@ def call(component) {
                 }
             }
         }
-        stage('Get the results') {
+        stage('Get the sonar results') {
             steps {
-                echo "aafasd"
+                sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh"
+                sh "./gates.sh admin pass 172.31.41.5 ${component}"
                 }
             }
         }
