@@ -33,8 +33,8 @@ pipeline {
                 echo "Testing in Progress"
                 echo "Testing in Completed"
                 }
-            }
         }
+        
     }
 }
 
