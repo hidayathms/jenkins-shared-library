@@ -22,8 +22,7 @@ pipeline {
         }
         stage('Compiling Java code') {
             steps {
-                script {
-                    sonarChecks(component)
+                sh "mvn clean compile"
                 }
             }
         }
