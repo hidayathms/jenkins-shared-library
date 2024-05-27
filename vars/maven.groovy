@@ -25,7 +25,6 @@ pipeline {
                 sh "mvn clean compile"
                 sh "ls -ltr target/"
                 }
-            }
         }
         stage('Static Code Analysis') {
             steps {
