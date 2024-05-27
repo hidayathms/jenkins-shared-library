@@ -13,7 +13,7 @@ def call(component) {
 pipeline { 
     agent any
     tools {
-        maven 'maven-396' 
+        maven 'maven-390' 
     }
     stages {
         stage('Lint Checks') {
