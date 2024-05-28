@@ -46,6 +46,7 @@ pipeline {
         parallel {
                 stage('Unit Testing') {
                      steps {
+                        sh "env"
                         sh "echo Unit Testing In Progress"
                         // sh "mvn test"
                         sh "echo Unit Testing Completed"
