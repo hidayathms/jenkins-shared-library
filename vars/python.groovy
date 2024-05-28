@@ -38,21 +38,21 @@ pipeline {
                 stage('Unit Testing') {
                      steps {
                         sh "echo Unit Testing In Progress"
-                        // sh "npm test"
+                        // sh "pip test"
                         sh "echo Unit Testing Completed"
                     }
                 }
                 stage('Integration Testing') {
                     steps {
                        sh "echo Integration Testing In Progres"
-                    //    sh "npm verify"
+                    //    sh "pip verify"
                        sh "echo Integration Testing Completed"
                     }
                 }
                 stage('Functional Testing') {
                     steps {
                        sh "echo Functional Testing in progress"
-                    //    sh "npm function xxx"
+                    //    sh "pip function xxx"
                        sh "echo Functional Testing completed"
                     }
                 }
