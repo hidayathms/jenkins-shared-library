@@ -65,7 +65,7 @@ def call() {
                     when { expression {env.TAG_NAME != null} }
                     steps {
                        sh "echo Prparing Artifacts in progress"
-                       sh "npm install package"
+                       sh "npm install"
                        sh "ls -ltr"
                        sh "zip ${COMPONENT}-${TAG_NAME}.zip nodemodules server.js"
                        sh "ls -ltr"
