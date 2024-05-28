@@ -65,6 +65,18 @@ pipeline {
                        sh "echo Functional Testing completed"
                     }
                 }
+                stage('Prepare Artifact') {
+                    steps {
+                       sh "echo Prparing Artifacts in progress"
+                       sh "echo Artifact build  completed"
+                    }
+                }
+                stage('Uploding the Artifacts') {
+                    steps {
+                       sh "echo Uploading the Artifacts in progress"
+                       sh "echo Artifacts Uload completed"
+                    }
+                }
             }
         }
     }
