@@ -64,6 +64,7 @@ pipeline {
                     }
                 }
                 stage('Uploding the Artifacts') {       // Runs only when you run this job from tag and from branches it should run
+                    when { expression {env.TAG_NAME != null} }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
                        sh "echo Artifacts Uload completed"
