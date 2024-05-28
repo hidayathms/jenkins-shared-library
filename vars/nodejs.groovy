@@ -35,10 +35,29 @@ def call() {
                 sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh"
                 sh "bash gates.sh admin pass ${SONAR_URL} ${COMPONENT}"                }
             }
-        stage('Unit Testing') {
-            steps {
-                echo "Testing in Progress"
-                echo "Testing in Completed"
+        stage ('Test Cases'){
+        parallel {
+                stage('Unit Testing') {
+                     steps {
+                        sh "echo Unit Testing In Progress"
+                        // sh "npm test"
+                        sh "echo Unit Testing Completed"
+                    }
+                }
+                stage('Integration Testing') {
+                    steps {
+                       sh "echo Integration Testing In Progres"
+                    //    sh "npm verify"
+                       sh "echo Integration Testing Completed"
+                    }
+                }
+                stage('Functional Testing') {
+                    steps {
+                       sh "echo Functional Testing in progress"
+                    //    sh "npm function xxx"
+                       sh "echo Functional Testing completed"
+                    }
+                }
             }
         }
         
