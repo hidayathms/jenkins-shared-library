@@ -35,7 +35,8 @@ def call() {
                 sh "echo publishig sonar results"
             //     sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh"
             //     sh "bash gates.sh admin pass ${SONAR_URL} ${COMPONENT}"                }
-            }
+            }   
+        }
         stage ('Test Cases'){
         parallel {
                 stage('Unit Testing') {
