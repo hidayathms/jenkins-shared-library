@@ -11,6 +11,9 @@ def lintchecks() {
 def call() {
   pipeline { 
     agent any
+    tools {
+        nodejs 'NPM_NODEJS' 
+    }
     environment {
        SONAR_CRED=credentials('SONAR_CRED')
     }
