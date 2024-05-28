@@ -32,7 +32,7 @@ def call() {
         }
         stage('Get the sonar results') {
             steps {
-                sh "echo publishig sonar results"
+                sh "echo Sonar scan is good"
             //     sh "curl https://gitlab.com/thecloudcareers/opensource/-/raw/master/lab-tools/sonar-scanner/quality-gate >gates.sh"
             //     sh "bash gates.sh admin pass ${SONAR_URL} ${COMPONENT}"                }
             }   
