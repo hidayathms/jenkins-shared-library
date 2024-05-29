@@ -11,6 +11,8 @@ pipeline {
     environment {
        SONAR_CRED=credentials('SONAR_CRED')
        NEXUS_CRED=credentials('NEXUS_CRED')
+       SONAR_URL="172.31.41.5"
+       NEXUS_URL="172.31.45.41"
     }
     stages {
         stage('Lint Checks') {
