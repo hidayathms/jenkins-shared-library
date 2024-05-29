@@ -78,8 +78,7 @@ def call() {
                 }
                 stage('Prepare Artifact') {     // Runs only when you run this job from tag and from branches it should run
                     when { 
-                        expression { env.TAG_NAME != null } 
-                        // expression { env.UPLOAD_STATUS == "" } 
+                        expression { env.TAG_NAME != null } && { env.UPLOAD_STATUS == "" } 
                         }
                     steps {
                        sh "npm install"
