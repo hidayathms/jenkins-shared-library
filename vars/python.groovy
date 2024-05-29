@@ -10,6 +10,7 @@ pipeline {
     agent any
     environment {
        SONAR_CRED=credentials('SONAR_CRED')
+       NEXUS_CRED=credentials('NEXUS_CRED')
     }
     stages {
         stage('Lint Checks') {

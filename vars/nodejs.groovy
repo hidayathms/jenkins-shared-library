@@ -80,7 +80,7 @@ def call() {
                     when { expression {env.TAG_NAME != null} }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
-                       sh "curl -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://34.204.84.186:8081/repository/catalogue/"
+                       sh "curl -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://${NEXUS_URL}/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
                        sh "echo Artifacts upload completed"
                     }
                 }
