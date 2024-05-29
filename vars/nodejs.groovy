@@ -89,16 +89,16 @@ def call() {
                    
                     }
                 }
-                // stage('Uploding the Artifacts') {       // Runs only when you run this job from tag and from branches it should run
-                //     when { 
-                //         expression {env.TAG_NAME != null} 
-                //         expression {env.UPLOAD_STATUS == null} 
-                //         }
-                //     steps {
-                //        sh "echo Uploading the Artifacts in progress"
-                //        sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
-                //     }
-                // }
+                stage('Uploding the Artifacts') {       // Runs only when you run this job from tag and from branches it should run
+                    when { 
+                        expression {env.TAG_NAME != null} 
+                        expression {env.UPLOAD_STATUS == null} 
+                        }
+                    steps {
+                       sh "echo Uploading the Artifacts in progress"
+                       sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
+                    }
+                }
             }
         }
         
