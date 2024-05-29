@@ -79,7 +79,7 @@ def call() {
                 stage('Prepare Artifact') {    
                     when { 
                         expression {env.TAG_NAME != null}
-                        expression {env.UPLOAD_STATUS == null} 
+                        expression {env.UPLOAD_STATUS == ""} 
                     }
                     steps {
                        sh "npm install"
@@ -92,7 +92,7 @@ def call() {
                 stage('Uploding the Artifacts') {       
                     when { 
                         expression {env.TAG_NAME != null} 
-                        expression {env.UPLOAD_STATUS == null} 
+                        expression {env.UPLOAD_STATUS == ""} 
                     }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
