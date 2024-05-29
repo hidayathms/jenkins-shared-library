@@ -65,6 +65,14 @@ def call() {
                        sh "echo Functional Testing completed"
                     }
                 }
+                stage('Checking Arifacts availibility on NEXUS repo') {    
+                    when { expression {env.TAG_NAME != null} }
+                    steps {
+                        script {
+                          env.UPLOAD_STATUS=sh(script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip", returnStdout: true)                       
+                        }
+                    }
+                }
                 stage('Prepare Artifact') {     // Runs only when you run this job from tag and from branches it should run
                     when { expression {env.TAG_NAME != null} }
                     steps {
@@ -91,3 +99,6 @@ def call() {
   }
 
 }
+
+
+
