@@ -78,11 +78,9 @@ def call() {
                 }
                 stage('Prepare Artifact') {    
                     when { 
-                        allOf { 
                         expression {env.TAG_NAME != null}
                         expression {env.UPLOAD_STATUS == null} 
-                        }
-                        }
+                    }
                     steps {
                        sh "npm install"
                        sh "ls -ltr"
@@ -93,11 +91,9 @@ def call() {
                 }
                 stage('Uploding the Artifacts') {       
                     when { 
-                        allOf {
                         expression {env.TAG_NAME != null} 
                         expression {env.UPLOAD_STATUS == null} 
-                        }
-                        }
+                    }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
                        sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
