@@ -71,7 +71,7 @@ def call() {
                     when { expression {env.TAG_NAME != null} }
                     steps {
                         script {
-                          env.UPLOAD_STATUS=sh(script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip", returnStdout: true) 
+                          env.UPLOAD_STATUS=sh(script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip", returnStdout: true || true) 
                           print UPLOAD_STATUS                      
                         }
                     }
@@ -91,7 +91,7 @@ def call() {
                     when { expression {env.TAG_NAME != null} }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
-                       sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip || true"
+                       sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
                        sh "echo Artifacts upload completed"
                     }
                 }
