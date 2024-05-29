@@ -71,15 +71,17 @@ def call() {
                     when { expression {env.TAG_NAME != null} }
                     steps {
                         script {
-                          env.UPLOAD_STATUS=sh(returnStdout:true,script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip || true") 
+                          env.UPLOAD_STATUS=sh(returnStdout:true, script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip || true") 
                           print UPLOAD_STATUS                      
                         }
                     }
                 }
                 stage('Prepare Artifact') {     // Runs only when you run this job from tag and from branches it should run
                     when { 
+                        allof { 
                         expression {env.TAG_NAME != null}
                         expression {env.UPLOAD_STATUS == null} 
+                        }
                         }
                     steps {
                        sh "npm install"
@@ -89,10 +91,12 @@ def call() {
                    
                     }
                 }
-                stage('Uploding the Artifacts') {       // Runs only when you run this job from tag and from branches it should run
+                stage('Uploding the Artifacts') {       
                     when { 
+                        allof {
                         expression {env.TAG_NAME != null} 
                         expression {env.UPLOAD_STATUS == null} 
+                        }
                         }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
