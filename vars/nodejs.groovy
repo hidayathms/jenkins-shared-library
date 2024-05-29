@@ -76,7 +76,7 @@ def call() {
                         }
                     }
                 }
-                stage('Prepare Artifact') {     // Runs only when you run this job from tag and from branches it should run
+                stage('Prepare Artifact') {    
                     when { 
                         allOf { 
                         expression {env.TAG_NAME != null}
