@@ -78,7 +78,7 @@ def call() {
                 }
                 stage('Prepare Artifact') {     // Runs only when you run this job from tag and from branches it should run
                     when { 
-                        allof { 
+                        allOf { 
                         expression {env.TAG_NAME != null}
                         expression {env.UPLOAD_STATUS == null} 
                         }
@@ -93,7 +93,7 @@ def call() {
                 }
                 stage('Uploding the Artifacts') {       
                     when { 
-                        allof {
+                        allOf {
                         expression {env.TAG_NAME != null} 
                         expression {env.UPLOAD_STATUS == null} 
                         }
