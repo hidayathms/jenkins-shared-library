@@ -43,8 +43,8 @@ def call() {
             //     sh "bash gates.sh admin pass ${SONAR_URL} ${COMPONENT}"                }
             }   
         }
-        // stage ('Test Cases'){
-        // parallel {
+        stage ('Test Cases'){
+        parallel {
                 stage('Unit Testing') {
                      steps {
                         sh "env"
@@ -99,9 +99,9 @@ def call() {
         }
         
     }
-//   }
+  }
 
-// }
+}
 
 
 
