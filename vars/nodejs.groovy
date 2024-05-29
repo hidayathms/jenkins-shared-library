@@ -16,6 +16,7 @@ def call() {
     }
     environment {
        SONAR_CRED=credentials('SONAR_CRED')
+       NEXUS_CRED=credentials('NEXUS_CRED')
     }
     stages {
         stage('Lint Checks') {
@@ -79,7 +80,8 @@ def call() {
                     when { expression {env.TAG_NAME != null} }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
-                       sh "echo Artifacts Uload completed"
+                       sh "curl -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://34.204.84.186:8081/repository/catalogue/"
+                       sh "echo Artifacts upload completed"
                     }
                 }
             }
