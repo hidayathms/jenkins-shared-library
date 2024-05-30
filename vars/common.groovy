@@ -89,7 +89,7 @@ def artifacts() {
         }
 
         stage('Uploading the artifacts') {
-            sh "echo Uploading the ${COMPONENT} Artifacts in progress"
+            sh "echo Uploading the ${COMPONENT} Artifacts to Nexus"
             sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
             echo "Artifact build completed"
         }
