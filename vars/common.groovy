@@ -85,10 +85,5 @@ def artifacts() {
             sh "cd static/"
             sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip" 
         }
-
-
-
-
-
     }
 }
