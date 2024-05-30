@@ -60,5 +60,35 @@ stage('Test Cases') {
 }
 
 def artifacts() {
-    
+    stage('Checking Artifact Release on Nexus') {
+        env.UPLOAD_STATUS=sh(returnStdout: true, script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip || true")
+        print UPLOAD_STATUS
+    }
+    stage('Generating Artifacts') {
+        if(env.APP_TYPE == "nodejs"){
+            sh "npm install"
+            sh "ls -ltr"
+            sh "zip ${COMPONENT}-${TAG_NAME}.zip nodemodules server.js"
+            sh "ls -ltr"
+        }
+        else if(env.APP_TYPE == "maven"){
+            sh "mvn clean package"
+            sh "mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar"
+            sh "zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar"
+            sh "echo Artifact build completed"
+        }
+        else if(env.APP_TYPE == "python"){
+            sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirement.txt"
+                        echo "Artifact build completed"
+        }
+        else {
+            sh "cd static/"
+            sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip" 
+        }
+
+
+
+
+
+    }
 }
