@@ -1,6 +1,8 @@
 def call() {
     node {
         common.lintchecks()
+        env.ARGS="-Dsonar.sources=."
+        common.sonarChecks()
     }
 }
 
