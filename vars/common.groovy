@@ -80,12 +80,18 @@ def artifacts() {
             }
             else if(env.APP_TYPE == "python"){
                 sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirement.txt"
-                echo "Artifact build completed"
+                sh "echo Artifact build completed"
             }
             else {
                 sh "cd static/"
                 sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip" 
             }
+        }
+
+        stage('Uploading the artifacts') {
+            sh "echo Uploading the ${COMPONENT} Artifacts in progress"
+            sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
+            echo "Artifact build completed"
         }
     }
 }
