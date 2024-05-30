@@ -17,7 +17,7 @@ def lintchecks() {
             sh "node_modules/jslint/bin/jslint.js server.js || true"
             sh "echo **** Style checks are completed for ${COMPONENT} *******"
         }
-        else (env.APP_TYPE == "python") {
+        else if (env.APP_TYPE == "python") {
             sh "echo ***** Starting Style checks for  ${COMPONENT} *******"
             sh "pip3 install pylint || true"
             sh "pylint *.py || true"
