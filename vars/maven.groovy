@@ -3,6 +3,7 @@ def call() {
         common.lintchecks()
         env.ARGS="-Dsonar.java.binaries=./target"
         common.sonarChecks()
+        common.testcases()
     }
 }
 

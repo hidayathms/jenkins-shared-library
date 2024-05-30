@@ -3,12 +3,13 @@ def call() {
         common.lintchecks()
         env.ARGS="-Dsonar.sources=."
         common.sonarChecks()
+        common.testcases()
     }
 }
 
 
 // def call() {
-//   pipeline { 
+//   pipeline {  
 //     agent any
 //     tools {
 //         nodejs 'NPM_NODEJS' 
