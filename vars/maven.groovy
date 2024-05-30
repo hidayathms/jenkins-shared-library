@@ -46,8 +46,8 @@ pipeline {
                 // sh "bash gates.sh admin pass ${SONAR_URL} ${COMPONENT}"
                 }
         }
-        stage ('Test Cases'){
-        parallel {
+        // stage ('Test Cases'){
+        // parallel {
                 stage('Unit Testing') {
                      steps {
                         sh "env"
@@ -70,16 +70,16 @@ pipeline {
                        sh "echo Functional Testing completed"
                     }
                 }
-                stage('Checking Arifacts availibility on NEXUS repo') {    
-                    when { expression { env.TAG_NAME != null } }
-                    steps {
-                        script {
-                          env.UPLOAD_STATUS=sh(returnStdout: true, script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip || true") 
+                // stage('Checking Arifacts availibility on NEXUS repo') {    
+                //     when { expression { env.TAG_NAME != null } }
+                //     steps {
+                //         script {
+                //           env.UPLOAD_STATUS=sh(returnStdout: true, script: "curl http://${NEXUS_URL}:8081/service/rest/repository/browse/${COMPONENT}/ | grep ${COMPONENT}-${TAG_NAME}.zip || true") 
                                
-                        }
-                    }
-                }
-                stage('Prepare Artifact') {         // Runs only when you run this job from tag and from branches it should run
+                //         }
+                //     }
+                // }
+                stage('Prepare Artifact') {         
                     when { 
                         expression {env.TAG_NAME != null}
                         expression {env.UPLOAD_STATUS == ""} 
@@ -103,6 +103,6 @@ pipeline {
             }
         }
     }
-}
+// }
 
-}
+// }
