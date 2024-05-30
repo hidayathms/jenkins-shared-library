@@ -69,7 +69,7 @@ def artifacts() {
             if(env.APP_TYPE == "nodejs") {
                 sh "pwd"
                 sh "ls -ltr"
-                sh "npm install"
+                sh "dnf npm install"
                 sh "ls -ltr"
                 sh "zip ${COMPONENT}-${TAG_NAME}.zip nodemodules server.js"
                 sh "ls -ltr"
