@@ -10,6 +10,9 @@ def call() {
     }
 }
 
+
+/* Uncomment this to run it over Declarative approach */
+
 // def call() {
 // pipeline { 
 //     agent any
