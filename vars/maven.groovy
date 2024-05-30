@@ -85,8 +85,8 @@ pipeline {
                         expression {env.UPLOAD_STATUS == ""} 
                         }
                     steps {
-                       sh "echo Prparing Artifacts in progress"
-                       sh "echo Artifact build  completed"
+                       sh "mvn clean install"
+                       sh "echo Artifact build completed"
                     }
                 }
                 stage('Uploding the Artifacts') {     // Runs only when you run this job from tag and from branches it should run
@@ -96,6 +96,7 @@ pipeline {
                     }
                     steps {
                        sh "echo Uploading the Artifacts in progress"
+                       sh "curl -f -v -u ${NEXUS_CRED_USR}:${NEXUS_CRED_PSW} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
                        sh "echo Artifacts Uload completed"
                     }
                 }
