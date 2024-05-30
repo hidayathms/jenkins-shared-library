@@ -1,5 +1,3 @@
-
-
 def call() {
 pipeline { 
     agent any
@@ -13,7 +11,7 @@ pipeline {
         stage('Lint Checks') {
             steps {
                 script {
-                    lintchecks()
+                    common.lintchecks()
                 }
             }
         }
