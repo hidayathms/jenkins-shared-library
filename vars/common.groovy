@@ -62,7 +62,7 @@ def lintchecks() {
 
 def testcases() {
 stage('Test Cases') {
-        def stages = (:)
+        def stages = ()
 
         stages("Unit Testing") = {
             echo "Unit Testing In Progress"
