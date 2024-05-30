@@ -59,3 +59,6 @@ stage('Test Cases') {
     }
 }
 
+def artifacts() {
+    
+}
