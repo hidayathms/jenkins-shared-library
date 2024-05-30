@@ -64,7 +64,7 @@ def testcases() {
 stage('Test Cases') {
         def stages = [:]
 
-        stages("Unit Testing") = {
+        stages["Unit Testing"] = {
             echo "Unit Testing In Progress"
             // npm test
             echo "Unit Testing Is Completed"
