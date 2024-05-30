@@ -1,10 +1,4 @@
 
-def lintchecks() {
-    sh "echo ***** Starting Style checks for  ${COMPONENT} *******"
-    // sh "npm i jslint"
-    sh "node_modules/jslint/bin/jslint.js server.js || true"
-    sh "echo **** Style checks are completed for ${COMPONENT} *******"
-}
 
 
 
