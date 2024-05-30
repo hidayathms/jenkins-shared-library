@@ -79,7 +79,7 @@ def artifacts() {
         }
         else if(env.APP_TYPE == "python"){
             sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirement.txt"
-                        echo "Artifact build completed"
+            echo "Artifact build completed"
         }
         else {
             sh "cd static/"
