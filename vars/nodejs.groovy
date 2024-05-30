@@ -4,6 +4,7 @@ def call() {
         env.ARGS="-Dsonar.sources=."
         common.sonarChecks()
         common.testcases()
+        env.NEXUS_URL="172.31.45.41"
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
