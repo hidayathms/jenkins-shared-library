@@ -9,7 +9,7 @@ def call() {
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
-        common.npm()
+        common.nodejs()
     }        
 }
 
