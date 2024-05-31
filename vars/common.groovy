@@ -103,6 +103,6 @@ def artifacts() {
 }
 }
 
-def npm ('NPM_NODEJS') {
+nodejs ('NPM_NODEJS') {
                 sh "echo NPM modules made availble to prepare artifacts"
 }
