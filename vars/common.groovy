@@ -15,6 +15,9 @@ def lintchecks() {
         }
         else if (env.APP_TYPE =="nodejs") {
             sh "echo ***** Starting Style checks for  ${COMPONENT} *******"
+            nodejs('NPM_NODEJS') {
+                sh "echo NPM modules made availble to prepare artifacts"
+            }
             // sh "npm i jslint"
             // sh "node_modules/jslint/bin/jslint.js server.js || true"
             sh "echo **** Style checks are completed for ${COMPONENT} *******"
