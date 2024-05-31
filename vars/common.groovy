@@ -67,7 +67,8 @@ def artifacts() {
     if(env.UPLOAD_STATUS == "") {
         stage('Generating Artifacts') {
             if(env.APP_TYPE == "nodejs") {
-                sh "pwd"
+                def nodeHome = nodejs: nodejsTool, type: 'NodeJS'
+                env.PATH = "${nodeHome}/bin:${env.PATH}"
                 sh "ls -ltr"
                 sh "npm install"
                 sh "ls -ltr"

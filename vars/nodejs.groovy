@@ -1,5 +1,6 @@
 def call() {
     node {
+        def nodejsTool = 'NPM_NODEJS'
         // git branch: 'main', url: "https://github.com/hidayathms/${COMPONENT}.git"
         common.lintchecks()
         env.ARGS="-Dsonar.sources=."
