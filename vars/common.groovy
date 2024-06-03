@@ -72,7 +72,7 @@ def artifacts() {
                 sh "zip ${COMPONENT}-${TAG_NAME}.zip nodemodules server.js"
                 sh "ls -ltr"
             }
-            else (env.APP_TYPE == "maven") {
+            else if(env.APP_TYPE == "maven") {
                 sh "mvn clean package"
                 sh "mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar"
                 sh "zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar"
