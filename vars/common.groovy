@@ -82,7 +82,7 @@ def artifacts() {
                 sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirement.txt"
                 sh "echo Artifact build completed"
             }
-            else if(env.APP_TYPE == 'angularjs') {
+            else if(env.APP_TYPE == "angularjs") {
                 sh "ls -ltr"
                 sh "cd static/"
                 sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip *" 
