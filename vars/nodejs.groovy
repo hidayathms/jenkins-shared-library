@@ -7,7 +7,7 @@ def call() {
         common.testcases()
         env.NEXUS_URL="172.31.45.41"
         tool = NPM_NODEJS: 'nodejs'
-        env.NPM_HOME = "${tool)"
+        // env.NPM_HOME = "${tool)"
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
