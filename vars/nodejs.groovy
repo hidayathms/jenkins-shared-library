@@ -10,7 +10,7 @@ def call() {
             common.artifacts()
         }
         def nodeJsInstallationName = 'NPM_NODEJS'
-        def nodeHome = tool name: nodeJsInstallationName, type: 'nodejs'
+        def nodeHome = tool name: nodeJsInstallationName, type: 'NodeJSInstallation'
         env.PATH = "${nodeHome}/bin:${env.PATH}"
     }        
 }
