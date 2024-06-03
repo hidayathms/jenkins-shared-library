@@ -83,9 +83,7 @@ def artifacts() {
                 sh "echo Artifact build completed"
             }
             else if(env.APP_TYPE == "angularjs") {
-                sh "ls -ltr"
-                sh "cd static/"
-                sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip *" 
+            sh "zip -r .static/${COMPONENT}-${TAG_NAME}.zip *" 
                 sh "ls -ltr"
             }
             else {
