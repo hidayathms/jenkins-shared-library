@@ -78,17 +78,17 @@ def artifacts() {
                 sh "zip -r ${COMPONENT}-${TAG_NAME}.zip ${COMPONENT}.jar"
                 sh "echo Artifact build completed"
             }
-//             else if(env.APP_TYPE == "python") {
-//                 sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirement.txt"
-//                 sh "echo Artifact build completed"
-//             }
-//             else if(env.APP_TYPE == "angularjs") {
-//                 sh "cd static/"
-//                 sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip" 
-//             }
-//             else {
-//                 sh "echo Selected Component Type doesnot exist"
-//             }
+            else if(env.APP_TYPE == "python") {
+                sh "zip -r ${COMPONENT}-${TAG_NAME}.zip *.py *.ini requirement.txt"
+                sh "echo Artifact build completed"
+            }
+            else if(env.APP_TYPE == "angularjs") {
+                sh "cd static/"
+                sh "zip -r ../${COMPONENT}-${TAG_NAME}.zip" 
+            }
+            else {
+                sh "echo Selected Component Type doesnot exist"
+            }
         }
 
         stage('Uploading the artifacts') {
@@ -96,8 +96,8 @@ def artifacts() {
             sh "echo Uploading the ${COMPONENT} Artifacts to Nexus"
             sh "curl -f -v -u ${NEXUS_USER}:${NEXUS_PASSWORD} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
             echo "Artifact build completed"
+            }
         }
     }
-}
 }
 
