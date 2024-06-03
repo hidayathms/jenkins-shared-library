@@ -93,12 +93,12 @@ def artifacts() {
 //             }
 //         }
 
-//         stage('Uploading the artifacts') {
-//             withCredentials([usernamePassword(credentialsId: 'NEXUS_CRED', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USER')]) {
-//             sh "echo Uploading the ${COMPONENT} Artifacts to Nexus"
-//             sh "curl -f -v -u ${NEXUS_USER}:${NEXUS_PASSWORD} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
-//             echo "Artifact build completed"
-//         }
+        stage('Uploading the artifacts') {
+            withCredentials([usernamePassword(credentialsId: 'NEXUS_CRED', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USER')]) {
+            sh "echo Uploading the ${COMPONENT} Artifacts to Nexus"
+            sh "curl -f -v -u ${NEXUS_USER}:${NEXUS_PASSWORD} --upload-file ${COMPONENT}-${TAG_NAME}.zip http://172.31.45.41:8081/repository/${COMPONENT}/${COMPONENT}-${TAG_NAME}.zip"
+            echo "Artifact build completed"
+        }
     }
 }
 }
