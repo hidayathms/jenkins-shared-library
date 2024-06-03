@@ -6,10 +6,12 @@ def call() {
         common.sonarChecks()
         common.testcases()
         env.NEXUS_URL="172.31.45.41"
-        tools { nodejs 'NPM_NODEJS' }
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
+        def nodeJsInstallationName = 'NPM_NODEJS'
+        def nodeHome = tool name: nodeJsInstallationName, type: 'nodejs'
+        env.PATH = "${nodeHome}/bin:${env.PATH}"
     }        
 }
 
