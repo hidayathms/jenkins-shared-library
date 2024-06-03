@@ -67,7 +67,7 @@ def artifacts() {
     if(env.UPLOAD_STATUS == "") {
         stage('Generating Artifacts') {
             if(env.APP_TYPE == "nodejs") {
-                sh "npm install"
+                sh "npm install -g"
                 sh "ls -ltr"
                 sh "zip ${COMPONENT}-${TAG_NAME}.zip nodemodules server.js"
                 sh "ls -ltr"
