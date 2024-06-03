@@ -9,8 +9,7 @@ def call() {
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
-        def nodeJsInstallationName = 'NPM_NODEJS'
-        
+               
     }        
 }
 
