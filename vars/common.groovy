@@ -91,7 +91,7 @@ def artifacts() {
 //             else {
 //                 sh "echo Selected Component Type doesnot exist"
 //             }
-//         }
+        }
 
         stage('Uploading the artifacts') {
             withCredentials([usernamePassword(credentialsId: 'NEXUS_CRED', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'NEXUS_USER')]) {
