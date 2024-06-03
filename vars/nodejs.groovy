@@ -6,8 +6,8 @@ def call() {
         common.sonarChecks()
         common.testcases()
         env.NEXUS_URL="172.31.45.41"
-        // NPM = nodjs: 'NPM_NODEJS'
-        // env.NPM_HOME = "${NPM)"
+        NPM = nodjs: 'NPM_NODEJS'
+        env.NPM_HOME = "${NPM)"
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
