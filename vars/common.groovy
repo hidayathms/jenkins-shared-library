@@ -35,29 +35,29 @@ def lintchecks() {
   
 }
 
-// def testcases() {
-// stage('Test Cases') {
-//         def stages = [:]
+def testcases() {
+stage('Test Cases') {
+        def stages = [:]
 
-//         stages["Unit Testing"] = {
-//             echo "Unit Testing In Progress"
-//             // npm test
-//             echo "Unit Testing Is Completed"
-//         }
-//         stages["Integration Testing"] = {
-//             echo "Integration Testing In Progress"
-//             // npm verify
-//             echo "Integration Testing Is Completed"
-//         }
-//         stages["Funcitonal Testing"] = {
-//             echo "Functional Testing In Progress"
-//             // npm function xxx
-//             echo "Functional Testing Is Completed"
+        stages["Unit Testing"] = {
+            echo "Unit Testing In Progress"
+            // npm test
+            echo "Unit Testing Is Completed"
+        }
+        stages["Integration Testing"] = {
+            echo "Integration Testing In Progress"
+            // npm verify
+            echo "Integration Testing Is Completed"
+        }
+        stages["Funcitonal Testing"] = {
+            echo "Functional Testing In Progress"
+            // npm function xxx
+            echo "Functional Testing Is Completed"
 
-//         }
-//         parallel(stages)
-//     }
-// }
+        }
+        parallel(stages)
+    }
+}
 
 // def artifacts() {
 //     stage('Checking Artifact Release on Nexus') {
