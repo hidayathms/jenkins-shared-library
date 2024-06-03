@@ -9,8 +9,8 @@ def call() {
         if(env.TAG_NAME != null) {
             common.artifacts()
         }
-        def nodeJsInstallationName = 'NodeJS'
-        def nodeHome = tool name: nodeJsInstallationName, type: 'NPM_NODEJS'
+        def nodeJsInstallationName = 'NPM_NODEJS'
+        def nodeHome = tool name: nodeJsInstallationName, type: 'NodeJS'
         env.PATH = "${nodeHome}/bin:${env.PATH}"
     }        
 }
